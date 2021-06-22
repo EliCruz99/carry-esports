@@ -4,21 +4,32 @@
 }
 body{
   font-size: 18px ;
+  background-color: #262b2f;
 }
-
-title{
-  display: flex;
-  justify-content: flex-start;
-}
-
-
-
 ul {
   list-style-type: none;
   display: flex;
   padding-top: 10px ;
+  font-family: 'Crimson Pro', serif;
+}
+a {
+  color:#77d183 ;
+  text-decoration: none;
+}
+a:hover {
+  color:grey
+}
+a:active {
+  background-color: red;
 }
 
+/* Class stylings */
+.title{
+  display: flex;
+  justify-content: flex-start;
+  font-family: 'Bebas Neue', cursive;
+  color: bisque;
+}
 .lol{
   padding: 0 8px;
 }
@@ -41,7 +52,7 @@ ul {
   display: flex;
   flex-flow: row nowrap ;
   justify-content: space-between;
-  background-color: honeydew;
+  background-image: linear-gradient(to left,#2a4858,#007f86);
 }
 .future-matches {
   display: flex;
@@ -87,4 +98,8 @@ ul {
   justify-content: center;
   align-items: stretch;
   max-width: 100%;
+}
+/* ID Stylings */
+#Search {
+
 }
