@@ -34,6 +34,8 @@ Data Sample: ![Data Sample](https://i.imgur.com/v05vZXi.png)
 
 -update nav bar to show teams dropdown 
 
+-incorporate the Live version of the API to have real time statistics and always be up to date on the score
+
 ## Project Schedule
 
 
