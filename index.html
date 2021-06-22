@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="./script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="script.js"></script>
     <title>Carry Esports</title>
   </head>
   <body>
@@ -18,10 +25,11 @@
       <li class="cod"><a href="#">Call of Duty</a></li>
       <li class="ow"><a href="#">Overwatch</a></li>
      </ul>
-      <div class="search-bar">
-        <input type="text" id="blank" placeholder="search">
-        <button id="Search">search</button>
-     </div>
+    <div class="search-bar">
+        <input type="text" id="game-search" placeholder="search">
+        
+        <button type="" id="Search">search</button>
+    </div>
   </div>
   <div class="future-matches">
     <div class="upcoming1"></div>
