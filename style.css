@@ -2,3 +2,89 @@
   margin: 0;
   padding: 0;
 }
+body{
+  font-size: 18px ;
+}
+
+title{
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+
+ul {
+  list-style-type: none;
+  display: flex;
+  padding-top: 10px ;
+}
+
+.lol{
+  padding: 0 8px;
+}
+.cs {
+  padding: 0 8px;
+}
+.val {
+  padding: 0 8px;
+}
+.cod {
+  padding: 0 8px;
+}
+.ow {
+  padding: 0 8px;
+}
+.search-bar{
+  padding: 10px 10px 0 0;
+}
+.navbar {
+  display: flex;
+  flex-flow: row nowrap ;
+  justify-content: space-between;
+  background-color: honeydew;
+}
+.future-matches {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0 30px 0;
+}
+.upcoming1 {
+  background-color: red;
+  padding: 100px 50px;
+}
+.upcoming2 {
+  background-color: blue;
+  padding: 100px 50px;
+}
+.upcoming3 {
+  background-color: green;
+  padding: 100px 50px;
+}
+.past-matches {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 40px 0 30px 0;
+}
+.past1 {
+  background-color: magenta;
+  padding: 100px 50px;
+}
+.past2 {
+  background-color: cyan;
+  padding: 100px 50px;
+}
+.past3 {
+  background-color: yellow;
+  padding: 100px 50px;
+}
+.schedule {
+  background-color: #738678 ;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 100%;
+}
