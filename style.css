@@ -63,16 +63,16 @@ a:active {
 }
 .upcoming1 {
   background-color: red;
-  padding: 100px 50px;
+  
   max-width: 10%;
 }
 .upcoming2 {
   background-color: blue;
-  padding: 100px 50px;
+
 }
 .upcoming3 {
   background-color: green;
-  padding: 100px 50px;
+
 }
 .past-matches {
   display: flex;
@@ -83,15 +83,15 @@ a:active {
 }
 .past1 {
   background-color: magenta;
-  padding: 100px 50px;
+
 }
 .past2 {
   background-color: cyan;
-  padding: 100px 50px;
+
 }
 .past3 {
   background-color: yellow;
-  padding: 100px 50px;
+
 }
 .schedule {
   background-color: #738678 ;
@@ -101,6 +101,3 @@ a:active {
   max-width: 100%;
 }
 /* ID Stylings */
-#Search {
-
-}
