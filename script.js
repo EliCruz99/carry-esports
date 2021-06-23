@@ -19,7 +19,7 @@ const overWatch = "ow"
 
 
 btn.addEventListener('click', () => {
-  // leagueData(searchBar.value)
+  leagueData(searchBar.value)
   seriesData(searchBar.value)
   searchBar.value = ""
 })
@@ -27,10 +27,13 @@ btn.addEventListener('click', () => {
 async function leagueData(game) {
   try {
     const response = await axios.get(`${DOMAIN}/${game}/leagues?page[size]=100&token=${TOKEN}`)
+    games = response.data
+    console.log(games)
+    renderTounreyList(games)
     for (let i = 0; i < response.data.length; i++) {
-      console.log(response.data[i])
-      
+
     }
+
     
   } catch (error) {
     console.error(error)
@@ -40,9 +43,11 @@ async function seriesData(game) {
   try {
     const response = await axios.get(`${DOMAIN}/${game}/series?page[size]=100&token=${TOKEN}`)
     // console.log(response.data)
-    for (let i = 0; i < response.data.length; i++) {
-        console.log(response.data[i])
-    }
+    games = response.data
+    renderTounreyList(games)
+    // for (let i = 0; i < response.data.length; i++) {
+    //     console.log(response.data[i])
+    // }
     
   } catch (error) {
     console.error(error)
@@ -55,11 +60,16 @@ function renderTounreyList(game) {
     for (let i = 0; i < game.length; i++) {
       
       const games = document.createElement('h3')
-      games.textContent = game[i].league
+      games.textContent = game[i].name
       upcoming1.append(games)
       
       const stats = document.createElement('p')
-      stats.textContent = game[i]
+      stats.textContent = game[i].series[i]
+      upcoming1.append(stats)
+
+      const leagueimg = document.createElement('img')
+      leagueimg.setAttribute('src', game[i].image_url)
+      upcoming1.append(leagueimg)
       
     }
 }
