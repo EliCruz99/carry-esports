@@ -21,6 +21,7 @@ const callOfDuty = "codmw"
 const counterStrike = "csgo"
 const valorant = "valorant"
 const overWatch = "ow"
+const currentTime = new Date()
 
 
 btn.addEventListener('click', () => {
@@ -28,38 +29,9 @@ btn.addEventListener('click', () => {
   // seriesData(searchBar.value)
   matchData(searchBar.value)
   searchBar.value = ""
-  clearList(upcoming1)
+  clearCard(upcoming1)
 })
 
-// async function leagueData(game) {
-//   try {
-//     const response = await axios.get(`${DOMAIN}/${game}/leagues?page[size]=100&token=${TOKEN}`)
-//     games = response.data
-//     console.log(games)
-//     renderTounreyList(games)
-//     for (let i = 0; i < response.data.length; i++) {
-
-//     }
-
-    
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
-// async function seriesData(game) {
-//   try {
-//     const response = await axios.get(`${DOMAIN}/${game}/series?page[size]=100&token=${TOKEN}`)
-//     // console.log(response.data)
-//     games = response.data
-//     // renderTounreyList(game)
-//     for (let i = 0; i < response.data.length; i++) {
-//         console.log(response.data[i])
-//     }
-    
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
 
 async function matchData(game) {
   try {
@@ -78,68 +50,40 @@ async function matchData(game) {
 
 
 
-function renderTounreyList(game) {
-    for (let i = 0; i < game.length; i++) {
-      
+
+function renderMatchList(game) {
+  for (let i = 0; i < game.length; i++) {
+    if (game[i].begin_at >= currentTime) {
       const league = document.createElement('h3')
       league.textContent = game[i].league.name
       upcoming1.append(league)
 
       const series = document.createElement('h4')
-      series.textContent = game[i].series[i]
+      series.textContent = game[i].serie.full_name
       upcoming1.append(series)
 
       const games = document.createElement('h5')
       games.textContent = game[i].name
       upcoming1.append(games)
-      
-      // const stats = document.createElement('p')
-      // stats.textContent = game[i].series[i]
-      // upcoming1.append(stats)
 
-      const leagueimg = document.createElement('img')
-      leagueimg.setAttribute('src', game[i].image_url)
-      upcoming1.append(leagueimg)
-      
+      const stream = document.createElement('a')
+      stream.setAttribute('href', game[i].official_stream_url)
+      stream.textContent = `Stream`
+      upcoming1.append(stream)
     }
-}
-
-function renderMatchList(game) {
-  for (let i = 0; i < game.length; i++) {
-    
-    const league = document.createElement('h3')
-    league.textContent = game[i].league.name
-    upcoming1.append(league)
-
-    const series = document.createElement('h4')
-    series.textContent = game[i].serie.full_name
-    upcoming1.append(series)
-
-    const games = document.createElement('h5')
-    games.textContent = game[i].name
-    upcoming1.append(games)
-
-    // const games = document.createElement('h3')
-    // games.textContent = game[i].name
-    // upcoming1.append(games)
-    
-    // const results = document.createElement('p')
-    // results.textContent = game[i].winner.name
-    // upcoming1.append(results)
-
-    // const leagues = document.createElement('p')
-    // leagues.textContent = game[i].league.name
-    // upcoming1.append(leagues)
-
-    const stream = document.createElement('a')
-    stream.setAttribute('href', game[i].official_stream_url)
-    stream.textContent = `Stream`
-    upcoming1.append(stream)
   }
 }
 
-function clearList(elementToRemove) {
+function clearCard(elementToRemove) {
   while (elementToRemove.lastChild) {
     elementToRemove.removeChild(elementToRemove.lastChild)
   }
 }
+// ways to get next game in upcoming cards
+//assing current time and only put up the match that is closest to current time
+// assign begin_at time a value and assinging time a value so the closest time goes
+
+
+
+//ways to get previous game in past cards
+//as soon as winner.name is updated remove from upcoming card and put in past card
