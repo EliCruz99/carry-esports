@@ -64,6 +64,7 @@ a:active {
 .upcoming1 {
   background-color: red;
   padding: 100px 50px;
+  max-width: 10%;
 }
 .upcoming2 {
   background-color: blue;
