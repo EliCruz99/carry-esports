@@ -21,7 +21,7 @@ const callOfDuty = "codmw"
 const counterStrike = "csgo"
 const valorant = "valorant"
 const overWatch = "ow"
-const currentTime = new Date()
+
 
 
 btn.addEventListener('click', () => {
@@ -30,6 +30,8 @@ btn.addEventListener('click', () => {
   matchData(searchBar.value)
   searchBar.value = ""
   clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
 })
 
 
@@ -37,10 +39,12 @@ async function matchData(game) {
   try {
     const response = await axios.get(`${DOMAIN}/${game}/matches?page[size]=100&token=${TOKEN}`)
     matches = response.data
-  
-    renderMatchList(matches)
+    console
+    renderMatchList1(matches[matches.length - 1])
+    renderMatchList2(matches[matches.length - 2])
+    renderMatchList3(matches[matches.length - 3])
     for (let i = 0; i < matches.length; i++) {
-        console.log(matches[i])
+        // console.log(matches[i])
     }
     
   } catch (error) {
@@ -51,39 +55,75 @@ async function matchData(game) {
 
 
 
-function renderMatchList(game) {
-  for (let i = 0; i < game.length; i++) {
-    if (game[i].begin_at >= currentTime) {
+function renderMatchList1(game) {
+
       const league = document.createElement('h3')
-      league.textContent = game[i].league.name
+      league.textContent = game.league.name
       upcoming1.append(league)
 
       const series = document.createElement('h4')
-      series.textContent = game[i].serie.full_name
+      series.textContent = game.serie.full_name
       upcoming1.append(series)
 
       const games = document.createElement('h5')
-      games.textContent = game[i].name
+      games.textContent = game.name
       upcoming1.append(games)
 
       const stream = document.createElement('a')
-      stream.setAttribute('href', game[i].official_stream_url)
+      stream.setAttribute('href', game.official_stream_url)
       stream.textContent = `Stream`
       upcoming1.append(stream)
-    }
-  }
+  
 }
+function renderMatchList2(game) {
+
+  const league = document.createElement('h3')
+  league.textContent = game.league.name
+  upcoming2.append(league)
+
+  const series = document.createElement('h4')
+  series.textContent = game.serie.full_name
+  upcoming2.append(series)
+
+  const games = document.createElement('h5')
+  games.textContent = game.name
+  upcoming2.append(games)
+
+  const stream = document.createElement('a')
+  stream.setAttribute('href', game.official_stream_url)
+  stream.textContent = `Stream`
+  upcoming2.append(stream)
+
+}
+function renderMatchList3(game) {
+
+  const league = document.createElement('h3')
+  league.textContent = game.league.name
+  upcoming3.append(league)
+
+  const series = document.createElement('h4')
+  series.textContent = game.serie.full_name
+  upcoming3.append(series)
+
+  const games = document.createElement('h5')
+  games.textContent = game.name
+  upcoming3.append(games)
+
+  const stream = document.createElement('a')
+  stream.setAttribute('href', game.official_stream_url)
+  stream.textContent = `Stream`
+  upcoming3.append(stream)
+
+}
+
+
 
 function clearCard(elementToRemove) {
   while (elementToRemove.lastChild) {
     elementToRemove.removeChild(elementToRemove.lastChild)
   }
 }
-// ways to get next game in upcoming cards
-//assing current time and only put up the match that is closest to current time
-// assign begin_at time a value and assinging time a value so the closest time goes
 
 
 
-//ways to get previous game in past cards
-//as soon as winner.name is updated remove from upcoming card and put in past card
+
