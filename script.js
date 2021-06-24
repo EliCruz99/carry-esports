@@ -2,6 +2,7 @@ const DOMAIN = "https://agile-lake-43212.herokuapp.com/api.pandascore.co";
 const TOKEN = "eatsq_09CwuFxH5ZuhF65XB0EGLMdNl9HTtDMS01g9qpakQItnc"
 const searchBar = document.querySelector('#game-search')
 const homeBtn = document.querySelector('.title')
+const schedule = document.querySelector('.schedule')
 const btn = document.querySelector('#Search')
 const lol = document.querySelector('.lol')
 const cod = document.querySelector('.cod')
@@ -97,6 +98,7 @@ btn.addEventListener('click', () => {
   clearCard(past3)
 })
 
+// Match Data
 
 async function matchData(game) {
   try {
@@ -125,6 +127,25 @@ async function previousmatchData(game) {
     console.error(error)
   }
 }
+async function scheduleData() {
+  try {
+    const upcoming = await axios.get(`${DOMAIN}/matches/upcoming?page[size]=10&token=${TOKEN}`)
+    // const current = await axios.get(`${DOMAIN}/matches/running?page[size]=10&token=${TOKEN}`)
+    // const past = await axios.get(`${DOMAIN}/matches/past?page[size]=10&token=${TOKEN}`)
+    const upcomingMatches = upcoming.data
+    const runningMatches = current.data
+    const prevMatches = past.data
+    console.log(upcomingMatches)
+    scheduleCard(upcomingMatches)
+    // scheduleCard(runningMatches)
+    // scheduleCard(prevMatches)
+  } catch (error) {
+    
+  }
+}
+scheduleData()
+
+// Render individual cards
 
 async function card1Render(game) {
   try {
@@ -190,7 +211,7 @@ pastCard1Render(leagueOfLegends)
 pastCard2Render(counterStrike)
 pastCard3Render(valorant)
 
- 
+// Match list renders
 
 function renderMatchList1(game) {
 
@@ -339,7 +360,29 @@ function pastMatchList3(game) {
   past3.append(winner)
 }
 
+function scheduleCard() {
+  for (let i = 0; i < match.length; i++) {
 
+    const league = document.createElement('h3')
+    league.textContent = game[i].league.name
+    schedule.append(league)
+  
+    const leagueimg = document.createElement('img')
+    leagueimg.setAttribute('src', game[i].league.image_url)
+    leagueimg.style = "max-width: 50%;"
+    schedule.append(leagueimg)
+
+    const series = document.createElement('h4')
+    series.textContent = game[i].serie.full_name
+    schedule.append(series)
+
+    const games = document.createElement('h5')
+    games.textContent = game[i].name
+    schedule.append(games)
+  }
+}
+
+ // Clear Card divs
 
 function clearCard(elementToRemove) {
   while (elementToRemove.lastChild) {
