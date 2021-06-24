@@ -1,15 +1,13 @@
-// Game arrays
-// series Dota 2 
-// LEAGUES ESL CSGO leagues 21
-// LEAGUES lcs[27] lec[28] LPL[9] LCK[64] LOL
-// LEAGUES cod [0] codLeague
-// LEAGUES valorant champ tours [9]NA[35] EU[34]
-// LEAGUES ow [5]
-
 const DOMAIN = "https://agile-lake-43212.herokuapp.com/api.pandascore.co";
 const TOKEN = "eatsq_09CwuFxH5ZuhF65XB0EGLMdNl9HTtDMS01g9qpakQItnc"
 const searchBar = document.querySelector('#game-search')
+const homeBtn = document.querySelector('.title')
 const btn = document.querySelector('#Search')
+const lol = document.querySelector('.lol')
+const cod = document.querySelector('.cod')
+const csgo = document.querySelector('.cs')
+const val = document.querySelector('.val')
+const ow = document.querySelector('.ow')
 const upcoming1 = document.querySelector('.upcoming1')
 const upcoming2 = document.querySelector('.upcoming2')
 const upcoming3 = document.querySelector('.upcoming3')
@@ -22,11 +20,72 @@ const counterStrike = "csgo"
 const valorant = "valorant"
 const overWatch = "ow"
 
+homeBtn.addEventListener('click', () => {
+  card1Render(counterStrike)
+  card2Render(leagueOfLegends)
+  card3Render(valorant)
+  pastCard1Render(counterStrike)
+  pastCard2Render(leagueOfLegends)
+  pastCard3Render(valorant)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
 
-
+})
+lol.addEventListener('click', () => {
+  matchData(leagueOfLegends)
+  previousmatchData(leagueOfLegends)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
+})
+val.addEventListener('click', () => {
+  matchData(valorant)
+  previousmatchData(valorant)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
+})
+cod.addEventListener('click', () => {
+  matchData(callOfDuty)
+  previousmatchData(callOfDuty)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
+})
+csgo.addEventListener('click', () => {
+  matchData(counterStrike)
+  previousmatchData(counterStrike)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
+})
+ow.addEventListener('click', () => {
+  matchData(overWatch)
+  previousmatchData(overWatch)
+  clearCard(upcoming1)
+  clearCard(upcoming2)
+  clearCard(upcoming3)
+  clearCard(past1)
+  clearCard(past2)
+  clearCard(past3)
+})
 btn.addEventListener('click', () => {
-  // leagueData(searchBar.value)
-  // seriesData(searchBar.value)
   matchData(searchBar.value)
   previousmatchData(searchBar.value)
   searchBar.value = ""
@@ -57,7 +116,6 @@ async function previousmatchData(game) {
   try {
     const response = await axios.get(`${DOMAIN}/${game}/matches/past?page[size]=100&token=${TOKEN}`)
     matches = response.data
-    console.log(matches)
     pastMatchList1(matches[0])
     pastMatchList2(matches[1])
     pastMatchList3(matches[2])
@@ -68,8 +126,71 @@ async function previousmatchData(game) {
   }
 }
 
+async function card1Render(game) {
+  try {
+    const future = await axios.get(`${DOMAIN}/${game}/matches/upcoming?token=${TOKEN}`)
+    const upcoming = future.data
+    renderMatchList1(upcoming[0])
+  } catch (error) {
+    console.error(error)
+  }
+}
+async function card2Render(game) {
+  try {
+    const future = await axios.get(`${DOMAIN}/${game}/matches/upcoming?token=${TOKEN}`)
+    const upcoming = future.data
+    renderMatchList2(upcoming[0])
+  } catch (error) {
+    console.error(error)
+  }
+}
+async function card3Render(game) {
+  try {
+    const future = await axios.get(`${DOMAIN}/${game}/matches/upcoming?token=${TOKEN}`)
+    const upcoming = future.data
+    renderMatchList3(upcoming[0])
+  } catch (error) {
+    console.error(error)
+  }
+ }
+card1Render(leagueOfLegends)
+card2Render(counterStrike)
+card3Render(valorant)
 
+async function pastCard1Render(game) {
+  try {
+    const previous = await axios.get(`${DOMAIN}/${game}/matches/past?token=${TOKEN}`)
+    const pastGame = previous.data
+    pastMatchList1(pastGame[0])
+  } catch (error) {
+    console.error(error)
+  }
+}
+async function pastCard2Render(game) {
+  try {
+    const previous = await axios.get(`${DOMAIN}/${game}/matches/past?token=${TOKEN}`)
+    const pastGame = previous.data
 
+    pastMatchList2(pastGame[0])
+  } catch (error) {
+    console.error(error)
+  }
+}
+async function pastCard3Render(game) {
+  try {
+    const previous = await axios.get(`${DOMAIN}/${game}/matches/past?token=${TOKEN}`)
+    const pastGame = previous.data
+
+    pastMatchList3(pastGame[0])
+  } catch (error) {
+    console.error(error)
+  }
+}
+pastCard1Render(leagueOfLegends)
+pastCard2Render(counterStrike)
+pastCard3Render(valorant)
+
+ 
 
 function renderMatchList1(game) {
 
