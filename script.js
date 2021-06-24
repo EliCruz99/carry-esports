@@ -130,15 +130,15 @@ async function previousmatchData(game) {
 async function scheduleData() {
   try {
     const upcoming = await axios.get(`${DOMAIN}/matches/upcoming?page[size]=10&token=${TOKEN}`)
-    // const current = await axios.get(`${DOMAIN}/matches/running?page[size]=10&token=${TOKEN}`)
-    // const past = await axios.get(`${DOMAIN}/matches/past?page[size]=10&token=${TOKEN}`)
+    const current = await axios.get(`${DOMAIN}/matches/running?page[size]=10&token=${TOKEN}`)
+    const past = await axios.get(`${DOMAIN}/matches/past?page[size]=10&token=${TOKEN}`)
     const upcomingMatches = upcoming.data
     const runningMatches = current.data
     const prevMatches = past.data
     console.log(upcomingMatches)
     scheduleCard(upcomingMatches)
-    // scheduleCard(runningMatches)
-    // scheduleCard(prevMatches)
+    scheduleCard(runningMatches)
+    scheduleCard(prevMatches)
   } catch (error) {
     
   }
@@ -360,25 +360,27 @@ function pastMatchList3(game) {
   past3.append(winner)
 }
 
-function scheduleCard() {
-  for (let i = 0; i < match.length; i++) {
+function scheduleCard(scheduleData) {
+  for (let i = 0; i < scheduleData.length; i++) {
 
-    const league = document.createElement('h3')
-    league.textContent = game[i].league.name
+    const league = document.createElement('h4')
+    league.textContent = scheduleData[i].league.name
+    league.style = "font-size: 10px"
     schedule.append(league)
   
     const leagueimg = document.createElement('img')
-    leagueimg.setAttribute('src', game[i].league.image_url)
-    leagueimg.style = "max-width: 50%;"
-    schedule.append(leagueimg)
+    leagueimg.setAttribute('src', scheduleData[i].league.image_url)
+    leagueimg.style = "max-width: 40%;"
+      league.append(leagueimg)
 
     const series = document.createElement('h4')
-    series.textContent = game[i].serie.full_name
-    schedule.append(series)
+    series.textContent = scheduleData[i].serie.full_name
+    series.style = "font-size: 20px;"
+    leagueimg.append(series)
 
-    const games = document.createElement('h5')
-    games.textContent = game[i].name
-    schedule.append(games)
+    const games = document.createElement('h4')
+    games.textContent = scheduleData[i].name
+    series.append(games)
   }
 }
 
