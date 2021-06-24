@@ -29,6 +29,7 @@ a:active {
   justify-content: flex-start;
   font-family: 'Bebas Neue', cursive;
   color: bisque;
+  cursor: pointer ;
 }
 .lol{
   padding: 0 8px;
