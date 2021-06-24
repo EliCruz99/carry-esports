@@ -64,15 +64,15 @@ a:active {
 .upcoming1 {
   background-color: red;
   
-  max-width: 10%;
+  max-width: 20%;
 }
 .upcoming2 {
   background-color: blue;
-
+  max-width: 20%;
 }
 .upcoming3 {
   background-color: green;
-
+  max-width: 20%;
 }
 .past-matches {
   display: flex;
@@ -83,15 +83,15 @@ a:active {
 }
 .past1 {
   background-color: magenta;
-
+  max-width: 20%;
 }
 .past2 {
   background-color: cyan;
-
+  max-width: 20%;
 }
 .past3 {
   background-color: yellow;
-
+  max-width: 20%;
 }
 .schedule {
   background-color: #738678 ;
