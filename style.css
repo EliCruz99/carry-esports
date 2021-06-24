@@ -4,7 +4,9 @@
 }
 body{
   font-size: 18px ;
-  background-color: #262b2f;
+  /* background-color: #262b2f; */
+  /* background-color: ##fffafa; */
+  background-color: rgb(52, 52, 52);
 }
 ul {
   list-style-type: none;
@@ -53,7 +55,8 @@ a:active {
   display: flex;
   flex-flow: row nowrap ;
   justify-content: space-between;
-  background-image: linear-gradient(to left,#2a4858,#007f86);
+  /* background-image: linear-gradient(to left,#2a4858,#007f86); */
+  background-color: #5B676D;
 }
 .future-matches {
   display: flex;
@@ -64,16 +67,21 @@ a:active {
 }
 .upcoming1 {
   background-color: red;
-  
   max-width: 20%;
+  border-radius: 3%;
+  text-align: center;
 }
 .upcoming2 {
   background-color: blue;
   max-width: 20%;
+  border-radius: 3%;
+  text-align: center;
 }
 .upcoming3 {
   background-color: green;
   max-width: 20%;
+  border-radius: 3%;
+  text-align: center;
 }
 .past-matches {
   display: flex;
@@ -81,24 +89,36 @@ a:active {
   justify-content: space-around;
   align-items: center;
   padding: 40px 0 30px 0;
+  
 }
 .past1 {
   background-color: magenta;
   max-width: 20%;
+  border-radius: 3%;
+  text-align: center;
 }
 .past2 {
   background-color: cyan;
   max-width: 20%;
+  border-radius: 3%;
+  text-align: center;
 }
 .past3 {
   background-color: yellow;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 white;
+  transition: 0.3s;
+  border-radius: 3%;
+  text-align: center;
 }
 .schedule {
   background-color: #738678 ;
-  display: flex;
+  display:flex;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: stretch;
-  max-width: 100%;
+  overflow:auto;
+
+
 }
 /* ID Stylings */
