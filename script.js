@@ -25,6 +25,7 @@ homeBtn.addEventListener('click', () => {
   card1Render(counterStrike)
   card2Render(leagueOfLegends)
   card3Render(valorant)
+  scheduleData()
   pastCard1Render(counterStrike)
   pastCard2Render(leagueOfLegends)
   pastCard3Render(valorant)
@@ -34,61 +35,72 @@ homeBtn.addEventListener('click', () => {
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
-
+  clearCard(schedule)
 })
 lol.addEventListener('click', () => {
   matchData(leagueOfLegends)
   previousmatchData(leagueOfLegends)
+  indivData(leagueOfLegends)
   clearCard(upcoming1)
   clearCard(upcoming2)
   clearCard(upcoming3)
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 val.addEventListener('click', () => {
   matchData(valorant)
   previousmatchData(valorant)
+  indivData(valorant)
   clearCard(upcoming1)
   clearCard(upcoming2)
   clearCard(upcoming3)
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 cod.addEventListener('click', () => {
   matchData(callOfDuty)
   previousmatchData(callOfDuty)
+  indivData(callOfDuty)
   clearCard(upcoming1)
   clearCard(upcoming2)
   clearCard(upcoming3)
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 csgo.addEventListener('click', () => {
   matchData(counterStrike)
   previousmatchData(counterStrike)
+  indivData(counterStrike)
   clearCard(upcoming1)
   clearCard(upcoming2)
   clearCard(upcoming3)
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 ow.addEventListener('click', () => {
   matchData(overWatch)
   previousmatchData(overWatch)
+  indivData(overWatch)
   clearCard(upcoming1)
   clearCard(upcoming2)
   clearCard(upcoming3)
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 btn.addEventListener('click', () => {
   matchData(searchBar.value)
   previousmatchData(searchBar.value)
+  indivData(searchBar.value)
   searchBar.value = ""
   clearCard(upcoming1)
   clearCard(upcoming2)
@@ -96,9 +108,10 @@ btn.addEventListener('click', () => {
   clearCard(past1)
   clearCard(past2)
   clearCard(past3)
+  clearCard(schedule)
 })
 
-// Match Data
+// Get Match Data
 
 async function matchData(game) {
   try {
@@ -108,8 +121,6 @@ async function matchData(game) {
     renderMatchList1(matches[0])
     renderMatchList2(matches[1])
     renderMatchList3(matches[2])
-    
-    
   } catch (error) {
     console.error(error)
   }
@@ -144,6 +155,23 @@ async function scheduleData() {
   }
 }
 scheduleData()
+
+async function indivData(game) {
+  try {
+    const upcoming = await axios.get(`${DOMAIN}/${game}/matches/upcoming?page[size]=10&token=${TOKEN}`)
+    const current = await axios.get(`${DOMAIN}/${game}/matches/running?page[size]=10&token=${TOKEN}`)
+    const past = await axios.get(`${DOMAIN}/${game}/matches/past?page[size]=10&token=${TOKEN}`)
+    const upcomingMatches = upcoming.data
+    const runningMatches = current.data
+    const prevMatches = past.data
+    console.log(upcomingMatches)
+    scheduleCard(upcomingMatches)
+    scheduleCard(runningMatches)
+    scheduleCard(prevMatches)
+  } catch (error) {
+    
+  }
+}
 
 // Render individual cards
 
@@ -215,9 +243,9 @@ pastCard3Render(valorant)
 
 function renderMatchList1(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // upcoming1.append(league)
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  upcoming1.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -240,9 +268,9 @@ function renderMatchList1(game) {
 }
 function renderMatchList2(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // upcoming2.append(league)
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  upcoming2.append(league)
 
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -265,10 +293,10 @@ function renderMatchList2(game) {
 }
 function renderMatchList3(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // upcoming3.append(league)
-  
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  upcoming3.append(league)
+
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
   leagueimg.style = "max-width: 50%;"
@@ -290,9 +318,9 @@ function renderMatchList3(game) {
 }
 function pastMatchList1(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // past1.append(league)
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  past1.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -308,15 +336,15 @@ function pastMatchList1(game) {
   past1.append(games)
 
   const winner = document.createElement('p')
-  winner.textContent = game.winner.name
+  winner.textContent = `Winner: ${game.winner.name}`
   past1.append(winner)
 
 }
 function pastMatchList2(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // past2.append(league)
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  past2.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -332,15 +360,15 @@ function pastMatchList2(game) {
   past2.append(games)
 
   const winner = document.createElement('p')
-  winner.textContent = game.winner.name
+  winner.textContent = `Winner: ${game.winner.name}`
   past2.append(winner)
 
 }
 function pastMatchList3(game) {
 
-  // const league = document.createElement('h3')
-  // league.textContent = game.league.name
-  // past3.append(league)
+  const league = document.createElement('h3')
+  league.textContent = game.videogame.name
+  past3.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -356,7 +384,7 @@ function pastMatchList3(game) {
   past3.append(games)
 
   const winner = document.createElement('p')
-  winner.textContent = game.winner.name
+  winner.textContent = `Winner: ${game.winner.name}`
   past3.append(winner)
 }
 
