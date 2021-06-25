@@ -43,9 +43,9 @@ Data Sample: ![Data Sample](https://i.imgur.com/v05vZXi.png)
 |---|---| ---|
 |June 21| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |June 22| Project Approval / Core Application Structure (HTML, CSS, etc.) | Complete
-|June 23| Pseudocode / actual code | Incomplete
-|June 24| Initial Clickable Model  | Incomplete
-|June 25| MVP | Incomplete
+|June 23| Pseudocode / actual code | Complete
+|June 24| Initial Clickable Model  | Complete
+|June 25| MVP | Complete
 |June 28| Presentations | Incomplete
 
 ## Priority Matrix
@@ -67,9 +67,9 @@ Data Sample: ![Data Sample](https://i.imgur.com/v05vZXi.png)
 | Psuedo code JS | H | 3hrs| 3 |  |
 | Implementing psuedo code | H | 3hrs|  |  |
 | Working with API | H | 3hrs| 4hrs | 4hrs |
-| update cards with match info | H | 2hrs |  |  |
+| update cards with match info | H | 2hrs | 6hrs | 6hrs |
 | DOM manip to get buttons working | M | 1hr | .5hrs | .5hrs |
-| insert values when clicked on links | M | 1hr | .5hrs | .5hrs |
+| Insert values when clicked on links | M | 1hr | .5hrs | .5hrs |
 | Total | H | 25.5hrs| | |
 |  |  |  |  |  |
 
