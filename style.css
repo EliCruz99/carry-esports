@@ -5,24 +5,27 @@
 body{
   font-size: 18px ;
   /* background-color: #262b2f; */
-  /* background-color: ##fffafa; */
-  background-color: rgb(52, 52, 52);
+  /* background-color: #ddf1f7; */
+  background-color: rgb(25, 25, 36);
 }
 ul {
   list-style-type: none;
   display: flex;
   padding-top: 10px ;
+  font-size: 20px;
   font-family: 'Crimson Pro', serif;
 }
 a {
-  color:#fafa6e ;
+  /* color:#0AC7F7 ; */
+  /* color: #09D6C8; */
+  color: white;
   text-decoration: none;
 }
 a:hover {
-  color:grey
+  color: #E6E6E6;
 }
 a:active {
-  background-color: red;
+  background-color: #ED512D;
 }
 
 /* Class stylings */
@@ -30,8 +33,9 @@ a:active {
   display: flex;
   justify-content: flex-start;
   font-family: 'Bebas Neue', cursive;
-  color: bisque;
+  color: #15EDA2;
   cursor: pointer ;
+  text-shadow: 2.5px 2.5px #0A6E4B;
 }
 .lol{
   padding: 0 8px;
@@ -55,8 +59,7 @@ a:active {
   display: flex;
   flex-flow: row nowrap ;
   justify-content: space-between;
-  /* background-image: linear-gradient(to left,#2a4858,#007f86); */
-  background-color: #5B676D;
+  background-color: #602DED;
 }
 .future-matches {
   display: flex;
@@ -106,7 +109,7 @@ a:active {
 .past3 {
   background-color: yellow;
   max-width: 20%;
-  box-shadow: 0 4px 8px 0 white;
+  box-shadow: 0 4px 8px 0 black;
   transition: 0.3s;
   border-radius: 3%;
   text-align: center;
@@ -115,10 +118,22 @@ a:active {
   background-color: #738678 ;
   display:flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  align-items: stretch;
+  align-items:flex-start;
   overflow:auto;
+  height: 244px;
+  margin-right: 20px ;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+.schedule p {
+  border-style: solid ;
+  padding: 8px;
+  font-size: 17px;
 
-
+}
+.schedule img {
+  max-width: 44%;
+  /* width: 20px; 
+  height: 90px; */
 }
 /* ID Stylings */
