@@ -4,8 +4,6 @@
 }
 body{
   font-size: 18px ;
-  /* background-color: #262b2f; */
-  /* background-color: #ddf1f7; */
   background-color: rgb(25, 25, 36);
 }
 ul {
@@ -16,8 +14,6 @@ ul {
   font-family: 'Crimson Pro', serif;
 }
 a {
-  /* color:#0AC7F7 ; */
-  /* color: #09D6C8; */
   color: white;
   text-decoration: none;
 }
@@ -69,20 +65,23 @@ a:active {
   padding: 40px 0 30px 0;
 }
 .upcoming1 {
-  background-color: red;
+  background-color: #55D8F9;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 black;
   border-radius: 3%;
   text-align: center;
 }
 .upcoming2 {
-  background-color: blue;
+  background-color: #55D8F9;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 black;
   border-radius: 3%;
   text-align: center;
 }
 .upcoming3 {
-  background-color: green;
+  background-color: #55D8F9;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 black;
   border-radius: 3%;
   text-align: center;
 }
@@ -95,19 +94,21 @@ a:active {
   
 }
 .past1 {
-  background-color: magenta;
+  background-color: #0AC7F7;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 black;
   border-radius: 3%;
   text-align: center;
 }
 .past2 {
-  background-color: cyan;
+  background-color: #0AC7F7;
   max-width: 20%;
+  box-shadow: 0 4px 8px 0 black;
   border-radius: 3%;
   text-align: center;
 }
 .past3 {
-  background-color: yellow;
+  background-color: #0AC7F7;
   max-width: 20%;
   box-shadow: 0 4px 8px 0 black;
   transition: 0.3s;
@@ -115,7 +116,7 @@ a:active {
   text-align: center;
 }
 .schedule {
-  background-color: #738678 ;
+  background-color: rgba(255, 255, 255, 0.899) ;
   display:flex;
   flex-flow: row nowrap;
   align-items:flex-start;
@@ -123,19 +124,27 @@ a:active {
   height: 248px;
   margin-right: 20px ;
   margin-left: 20px;
+  box-shadow: 0 4px 8px 0 black;
 }
 .schedule p {
-  /* border-style: solid ; */
   padding: 8px;
   font-size: 17px;
   text-align: center;
-
 }
 .schedule img {
   max-width: 44%;  
 margin-left: auto;
 margin-right: auto;
 }
+.footer {
+  background-color: #602DED ;
+  text-align: center;
+  margin-top: 10px;
+}
+a:link, i {
+  color: black;
+}
+
 @media screen and (max-width: 780px) {
   .navbar {
  
@@ -160,3 +169,4 @@ margin-right: auto;
     margin-top: 175px;
   }
 }
+
