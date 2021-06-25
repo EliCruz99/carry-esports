@@ -215,9 +215,9 @@ pastCard3Render(valorant)
 
 function renderMatchList1(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  upcoming1.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // upcoming1.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -240,9 +240,9 @@ function renderMatchList1(game) {
 }
 function renderMatchList2(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  upcoming2.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // upcoming2.append(league)
 
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -265,9 +265,9 @@ function renderMatchList2(game) {
 }
 function renderMatchList3(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  upcoming3.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // upcoming3.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -290,9 +290,9 @@ function renderMatchList3(game) {
 }
 function pastMatchList1(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  past1.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // past1.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -314,9 +314,9 @@ function pastMatchList1(game) {
 }
 function pastMatchList2(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  past2.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // past2.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -338,9 +338,9 @@ function pastMatchList2(game) {
 }
 function pastMatchList3(game) {
 
-  const league = document.createElement('h3')
-  league.textContent = game.league.name
-  past3.append(league)
+  // const league = document.createElement('h3')
+  // league.textContent = game.league.name
+  // past3.append(league)
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
@@ -363,24 +363,24 @@ function pastMatchList3(game) {
 function scheduleCard(scheduleData) {
   for (let i = 0; i < scheduleData.length; i++) {
 
-    const league = document.createElement('h4')
-    league.textContent = scheduleData[i].league.name
-    league.style = "font-size: 10px"
+
+    const league = document.createElement('p')
+    league.textContent = scheduleData[i].videogame.name
     schedule.append(league)
-  
+
     const leagueimg = document.createElement('img')
     leagueimg.setAttribute('src', scheduleData[i].league.image_url)
-    leagueimg.style = "max-width: 40%;"
-      league.append(leagueimg)
+    leagueimg.style = "display: block;"
+    league.append(leagueimg)
+  
 
-    const series = document.createElement('h4')
+    const series = document.createElement('p')
     series.textContent = scheduleData[i].serie.full_name
-    series.style = "font-size: 20px;"
-    leagueimg.append(series)
+    league.append(series)
 
-    const games = document.createElement('h4')
-    games.textContent = scheduleData[i].name
-    series.append(games)
+    const games = document.createElement('p')
+    games.textContent = scheduleData[i].begin_at
+    league.append(games)
   }
 }
 
