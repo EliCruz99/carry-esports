@@ -120,20 +120,43 @@ a:active {
   flex-flow: row nowrap;
   align-items:flex-start;
   overflow:auto;
-  height: 244px;
+  height: 248px;
   margin-right: 20px ;
   margin-left: 20px;
-  padding-left: 20px;
 }
 .schedule p {
-  border-style: solid ;
+  /* border-style: solid ; */
   padding: 8px;
   font-size: 17px;
+  text-align: center;
 
 }
 .schedule img {
-  max-width: 44%;
-  /* width: 20px; 
-  height: 90px; */
+  max-width: 44%;  
+margin-left: auto;
+margin-right: auto;
 }
-/* ID Stylings */
+@media screen and (max-width: 780px) {
+  .navbar {
+ 
+    width: 100%;
+  }
+  .schedule {
+    margin-top: 100px;
+  }
+}
+@media  screen and (max-width: 1050px) {
+  ul {
+    font-size: 25px;
+  }
+  .lol {
+    padding-right: 4px;
+  }
+  .future-matches, .past-matches {
+    margin-top: 125px;
+  }
+
+  .schedule {
+    margin-top: 175px;
+  }
+}
