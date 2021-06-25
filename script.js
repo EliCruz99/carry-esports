@@ -110,14 +110,13 @@ btn.addEventListener('click', () => {
   clearCard(past3)
   clearCard(schedule)
 })
-
 // Get Match Data
 
 async function matchData(game) {
   try {
     const response = await axios.get(`${DOMAIN}/${game}/matches/upcoming?page[size]=100&token=${TOKEN}`)
     matches = response.data
-    // console.log(matches)
+
     renderMatchList1(matches[0])
     renderMatchList2(matches[1])
     renderMatchList3(matches[2])
@@ -146,7 +145,6 @@ async function scheduleData() {
     const upcomingMatches = upcoming.data
     const runningMatches = current.data
     const prevMatches = past.data
-    console.log(upcomingMatches)
     scheduleCard(upcomingMatches)
     scheduleCard(runningMatches)
     scheduleCard(prevMatches)
@@ -164,7 +162,6 @@ async function indivData(game) {
     const upcomingMatches = upcoming.data
     const runningMatches = current.data
     const prevMatches = past.data
-    console.log(upcomingMatches)
     scheduleCard(upcomingMatches)
     scheduleCard(runningMatches)
     scheduleCard(prevMatches)
@@ -249,6 +246,7 @@ function renderMatchList1(game) {
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   upcoming1.append(leagueimg)
 
@@ -274,6 +272,7 @@ function renderMatchList2(game) {
 
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   upcoming2.append(leagueimg)
 
@@ -299,6 +298,7 @@ function renderMatchList3(game) {
 
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   upcoming3.append(leagueimg)
 
@@ -324,6 +324,7 @@ function pastMatchList1(game) {
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   past1.append(leagueimg)
 
@@ -348,6 +349,7 @@ function pastMatchList2(game) {
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   past2.append(leagueimg)
 
@@ -372,6 +374,7 @@ function pastMatchList3(game) {
   
   const leagueimg = document.createElement('img')
   leagueimg.setAttribute('src', game.league.image_url)
+  leagueimg.setAttribute('alt', game.league.slug)
   leagueimg.style = "max-width: 50%;"
   past3.append(leagueimg)
 
@@ -398,6 +401,7 @@ function scheduleCard(scheduleData) {
 
     const leagueimg = document.createElement('img')
     leagueimg.setAttribute('src', scheduleData[i].league.image_url)
+    leagueimg.setAttribute('alt', scheduleData[i].league.slug)
     leagueimg.style = "display: block;"
     league.append(leagueimg)
   
@@ -419,6 +423,8 @@ function clearCard(elementToRemove) {
     elementToRemove.removeChild(elementToRemove.lastChild)
   }
 }
+
+
 
 
 
