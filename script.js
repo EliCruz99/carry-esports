@@ -97,19 +97,6 @@ ow.addEventListener('click', () => {
   clearCard(past3)
   clearCard(schedule)
 })
-btn.addEventListener('click', () => {
-  matchData(searchBar.value)
-  previousmatchData(searchBar.value)
-  indivData(searchBar.value)
-  searchBar.value = ""
-  clearCard(upcoming1)
-  clearCard(upcoming2)
-  clearCard(upcoming3)
-  clearCard(past1)
-  clearCard(past2)
-  clearCard(past3)
-  clearCard(schedule)
-})
 // Get Match Data
 
 async function matchData(game) {
