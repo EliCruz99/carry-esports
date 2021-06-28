@@ -60,22 +60,21 @@ Data Sample: ![Data Sample](https://i.imgur.com/v05vZXi.png)
 | Creating HTML base| H | 2.5hrs| 1hr | 1hr |
 | Structuring the website using flexbox | H | 3hrs| 3hrs | 3hrs |
 | Create Nav bar for games | H | .5hrs | .5hrs | .5hrs |
-| Make search bar | L | .5hrs | .1hrs | .1hrs |
 | Create card placeholders for match information | H | 1hr | 2hrs | 2hrs |
-| Make schedule for upcoming matches | H | 2hrs | 2hrs | 2hrs |
-| Create calendar dropdown to search the schedule past, present, future | H | 3hrs |  |  |
-| Psuedo code JS | H | 3hrs| 3 |  |
-| Implementing psuedo code | H | 3hrs|  |  |
+| Make schedule for upcoming matches | H | 2hrs | 3hrs | hrs |
+| Psuedo code JS | H | 3hrs| 3hrs | 2hrs |
+| Implementing psuedo code | H | 3hrs| 3hrs | 3hrs |
 | Working with API | H | 3hrs| 4hrs | 4hrs |
 | update cards with match info | H | 2hrs | 6hrs | 6hrs |
 | DOM manip to get buttons working | M | 1hr | .5hrs | .5hrs |
 | Insert values when clicked on links | M | 1hr | .5hrs | .5hrs |
-| Total | H | 25.5hrs| | |
+| *CSS to fix styling and structure once data was live | H | 3hrs | 3hrs | 3hrs |
+| Total | H | 25hrs| 29.6hrs| 29.6hrs |
 |  |  |  |  |  |
 
  *_newly added component_
 ## Code Snippet
 
-
+![code snippet](https://i.imgur.com/XWaIaN9.png)
 
 ## Change Log
